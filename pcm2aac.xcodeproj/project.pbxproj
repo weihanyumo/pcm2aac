@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9612D5E71D2A887500C4629F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9612D5E61D2A887500C4629F /* main.m */; };
+		9612D5E71D2A887500C4629F /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9612D5E61D2A887500C4629F /* main.mm */; };
+		9612D5EF1D2A88DD00C4629F /* libfaac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9612D5EE1D2A88DD00C4629F /* libfaac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		9612D5E31D2A887500C4629F /* pcm2aac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pcm2aac; sourceTree = BUILT_PRODUCTS_DIR; };
-		9612D5E61D2A887500C4629F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9612D5E61D2A887500C4629F /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		9612D5ED1D2A88BB00C4629F /* fat-faac */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "fat-faac"; sourceTree = "<group>"; };
+		9612D5EE1D2A88DD00C4629F /* libfaac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfaac.a; path = "pcm2aac/fat-faac/lib/libfaac.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9612D5EF1D2A88DD00C4629F /* libfaac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +45,7 @@
 		9612D5DA1D2A887500C4629F = {
 			isa = PBXGroup;
 			children = (
+				9612D5EE1D2A88DD00C4629F /* libfaac.a */,
 				9612D5E51D2A887500C4629F /* pcm2aac */,
 				9612D5E41D2A887500C4629F /* Products */,
 			);
@@ -57,7 +62,8 @@
 		9612D5E51D2A887500C4629F /* pcm2aac */ = {
 			isa = PBXGroup;
 			children = (
-				9612D5E61D2A887500C4629F /* main.m */,
+				9612D5ED1D2A88BB00C4629F /* fat-faac */,
+				9612D5E61D2A887500C4629F /* main.mm */,
 			);
 			path = pcm2aac;
 			sourceTree = "<group>";
@@ -118,7 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9612D5E71D2A887500C4629F /* main.m in Sources */,
+				9612D5E71D2A887500C4629F /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +215,11 @@
 		9612D5EB1D2A887500C4629F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/pcm2aac/fat-faac/include\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/pcm2aac/fat-faac/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +227,11 @@
 		9612D5EC1D2A887500C4629F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/pcm2aac/fat-faac/include\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/pcm2aac/fat-faac/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
